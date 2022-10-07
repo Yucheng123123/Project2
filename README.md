@@ -56,7 +56,7 @@ If I changed the keyword to "yuzuru", the data returned would also changed:
 
 ![image](https://user-images.githubusercontent.com/113315434/194599230-a53280f6-7fa1-4b31-bbcf-d5e00922f6bd.png)
 
-Run the program to print the user IDs and usernames of the tweet.
+Run the program to print the IDs and usernames of the tweet.
 
 ![image](https://user-images.githubusercontent.com/113315434/194598820-ed51d32f-68da-4612-bed0-68fc548af117.png)
 
@@ -174,3 +174,92 @@ And the response data was:
 Checking my account, there's a poll created 31 seconds ago:
 
 ![image](https://user-images.githubusercontent.com/113315434/194606804-9d61a067-501e-4c63-a45d-aabb198cc61e.png)
+
+# 2.Botometer API
+## Check by username
+In this section I will use the botometer API to check if a Twitter account is run by a real person. First I needed to go to RapidAPI to register an account and get my RapidAPI key. Second I added init.py which includes class Botometer and setup.py to finish initiation.
+
+Then when I finished writing the test program and started running it, something happened: the system said that I didn't have access. So I also needed to go to the twitter API dashboard and applied for Elevated Access in order to continue running the program.
+
+![image](https://user-images.githubusercontent.com/113315434/194643540-bd8c0100-6510-413f-b4ba-d82e55916d15.png)
+
+After Elevated access application was approved I ran the program again and got the result.
+### Test Program
+_import botometer_
+
+_from _init_ import Botometer_
+
+_rapidapi_key = "xxxxx"_
+
+_twitter_app_auth = {
+    'consumer_key': 'xxxxx',
+    'consumer_secret': 'xxxxx',
+    'access_token': 'xxxxx',
+    'access_token_secret': 'xxxxx',
+  }_
+  
+_bom = botometer.Botometer(wait_on_ratelimit=True,
+                          rapidapi_key=rapidapi_key,
+                          **twitter_app_auth)_
+
+_result = bom.check_account('@DisneyPlus')_
+
+_print(result)_
+### Result
+![image](https://user-images.githubusercontent.com/113315434/194644535-c98086cd-c7de-43a6-b35a-15b4d2f53730.png)
+
+![image](https://user-images.githubusercontent.com/113315434/194644586-dd48cacf-8df4-411d-bf5e-b0bd1adeeaad.png)
+
+**MEANING**
+
+**_fake_follower:_ Buying bots to increase the number of followers**
+
+**_self_declared:_ bots from botwiki.org**
+
+**_astroturf:_ manually flagged political bots and accounts involved in a tracking train of systematically deleted content**
+
+**_spammer:_ accounts from multiple datasets that are tagged as spam**
+
+**_financial:_ bots that use cash tags to post**
+
+**_other:_ various other bots from manual annotations, user feedback, etc.**
+
+In general, we believe that a score above 0.6 indicates that the account is being controlled by a bot. Since most of the tweets posted by DisneyPlus are in English, we can consider an English score of 0.747 on a scale of 0-1 as the final indicator. Therefore, we can see that DisneyPlus is not controlled by a real person.
+## Check by ID
+The following checked if the account is a bot by ID.
+### Test Program
+_result = bom.check_account(1548959833)_
+
+_print(result)_
+### Result
+![image](https://user-images.githubusercontent.com/113315434/194647229-87e323ad-182d-4a1e-85c5-17047639516c.png)
+![image](https://user-images.githubusercontent.com/113315434/194647341-1f2523e1-2e15-41d7-bf2f-9f4941132021.png)
+
+Since the score is less than 0.6, the account can be considered to be run by a real person.
+## Check a sequence of accounts
+### Test Program
+_accounts = ['@hourlyyuzu', '@vismyg', '@emmekalin']_
+
+_for screen_name, result in bom.check_accounts_in(accounts):_
+
+    print(screen_name)
+    
+    print(result)
+### Result
+![image](https://user-images.githubusercontent.com/113315434/194649152-d1b73b7b-497b-46fc-b100-e04209802036.png)
+
+![image](https://user-images.githubusercontent.com/113315434/194649197-0cec6088-7ca4-4115-abfc-d947b2a2ff1d.png)
+
+![image](https://user-images.githubusercontent.com/113315434/194649214-6accfb03-03bd-4257-ba3e-aca4b3b9dca0.png)
+
+![image](https://user-images.githubusercontent.com/113315434/194649270-b0d922bc-b29f-4b2d-a3b3-f5ab60fbb9d9.png)
+
+![image](https://user-images.githubusercontent.com/113315434/194649307-5fb6507c-b7cf-431b-9539-637cfa6b20ac.png)
+
+![image](https://user-images.githubusercontent.com/113315434/194649342-fb2dffe1-0b5c-49a3-9028-e424e80a2bb1.png)
+
+![image](https://user-images.githubusercontent.com/113315434/194649375-ab2f41fa-d01e-4b27-89f1-da8a0d621916.png)
+
+![image](https://user-images.githubusercontent.com/113315434/194649419-5f87df96-b818-4958-89b3-6f0127b6e69a.png)
+
+We can see that @hourlyyuzu is run by a real person, while @emmekalin and @vismyg are most likely bots.
