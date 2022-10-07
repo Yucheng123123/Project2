@@ -1,12 +1,12 @@
 import botometer
 from _init_ import Botometer
 
-rapidapi_key = "0341eaa6b2mshfc43c2af180ff13p19d4a5jsne4e00c13532a"
+rapidapi_key = "xxx"
 twitter_app_auth = {
-    'consumer_key': 'MNjVsWBuINDdWxx9A4hFEHmvT',
-    'consumer_secret': 'xtgI6rg2Jcd0I8KjeyFZTh1PKMaBrHJcPCZA2RHMxvwtgoEmkN',
-    'access_token': '1577736170212950017-to2AOGt32CqYfIB1Ycboz0MzI5vuMJ',
-    'access_token_secret': 'ZUICchF0w76OKEevaLybC10bqnoLexVLAnvJBRml8okhe',
+    'consumer_key': 'xxx',
+    'consumer_secret': 'xxx',
+    'access_token': 'xxx',
+    'access_token_secret': 'xxx',
   }
 bom = botometer.Botometer(wait_on_ratelimit=True,
                           rapidapi_key=rapidapi_key,
