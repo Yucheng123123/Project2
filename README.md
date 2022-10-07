@@ -176,7 +176,7 @@ Checking my account, there's a poll created 31 seconds ago:
 ![image](https://user-images.githubusercontent.com/113315434/194606804-9d61a067-501e-4c63-a45d-aabb198cc61e.png)
 
 # 2.Botometer API
-## Check by username
+## 2.1 Check by username
 In this section I will use the botometer API to check if a Twitter account is run by a real person. First I needed to go to RapidAPI to register an account and get my RapidAPI key. Second I added init.py which includes class Botometer and setup.py to finish initiation.
 
 Then when I finished writing the test program and started running it, something happened: the system said that I didn't have access. So I also needed to go to the twitter API dashboard and applied for Elevated Access in order to continue running the program.
@@ -225,7 +225,7 @@ _print(result)_
 **_other:_ various other bots from manual annotations, user feedback, etc.**
 
 In general, we believe that a score above 0.6 indicates that the account is being controlled by a bot. Since most of the tweets posted by DisneyPlus are in English, we can consider an English score of 0.747 on a scale of 0-1 as the final indicator. Therefore, we can see that DisneyPlus is not controlled by a real person.
-## Check by ID
+## 2.2 Check by ID
 The following checked if the account is a bot by ID.
 ### Test Program
 _result = bom.check_account(1548959833)_
@@ -233,10 +233,11 @@ _result = bom.check_account(1548959833)_
 _print(result)_
 ### Result
 ![image](https://user-images.githubusercontent.com/113315434/194647229-87e323ad-182d-4a1e-85c5-17047639516c.png)
+
 ![image](https://user-images.githubusercontent.com/113315434/194647341-1f2523e1-2e15-41d7-bf2f-9f4941132021.png)
 
 Since the score is less than 0.6, the account can be considered to be run by a real person.
-## Check a sequence of accounts
+## 2.3 Check a sequence of accounts
 ### Test Program
 _accounts = ['@hourlyyuzu', '@vismyg', '@emmekalin']_
 
