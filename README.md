@@ -1,5 +1,5 @@
-# Twitter APIs Tests
-## Search Tweets
+# 1 Twitter APIs Tests
+## 1.1 Search Tweets
 This section tests how to get tweets for certain keywords for the past 7 days. First you need to log in to _developer.twitter.com_ to create a new app, then get a token and password.
 
 ![doc](https://user-images.githubusercontent.com/113315434/194594323-a4d2483b-9f67-4e68-958b-cb6317aeea6f.PNG)
@@ -60,7 +60,7 @@ Run the program to print the user IDs and usernames of the tweet.
 
 ![image](https://user-images.githubusercontent.com/113315434/194598820-ed51d32f-68da-4612-bed0-68fc548af117.png)
 
-## Get the language of tweets
+## 1.2 Get the language of tweets
 On top of getting the users of the tweets, I also wanted to get the language used in the tweets. 
 
 So, I added tweet_fields as a parameter.
@@ -85,7 +85,7 @@ _for tweet in response.data:_
 
 It showed that the first tweet was written in Korean and the second one was written in English.
 
-## Get users who liked one tweet
+## 1.3 Get users who liked one tweet
 This part is great. Usually whenever I want to check the users who liked a tweet, it's always very annoying because there are too many people who liked it. This section tests how to get all the users who have liked a tweet.
 ### Test Program
 _import tweepy_
@@ -114,7 +114,7 @@ I got another list of username.
 ### Problems to be solved
 On top of that I would like to go a step further and get the names of the users who liked any of the several or hundreds of tweets at once and have them automatically sorted.
 
-## Write a tweet
+## 1.4 Write a tweet
 In this section I wanted to test how to send tweets. I needed to create a new client.
 
 ![image](https://user-images.githubusercontent.com/113315434/194604120-e5668847-82eb-4445-be0d-60faffea703e.png)
@@ -147,7 +147,7 @@ Then I logged in to Twitter, checked my account, and the tweet was sent successf
 
 ![从](https://user-images.githubusercontent.com/113315434/194604960-0dd145a1-d1bc-4354-bb81-1619372a948e.PNG)
 
-##Create a poll
+## 1.5 Create a poll
 On top of sending tweets, I would like to create a poll.
 ### Test Program
 _import tweepy_
