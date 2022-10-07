@@ -134,8 +134,6 @@ _response=client.create_tweet(text="yuzuru hanyu")_
 
 _print(response)_
 ### Result
-![test-create](https://user-images.githubusercontent.com/113315434/194604513-a5a7bbbe-edc8-4aa9-b402-164f327d74ce.PNG)
-
 ![text](https://user-images.githubusercontent.com/113315434/194604679-be259ab7-e540-4e94-afa1-78264c27bb0f.PNG)
 
 In debug mode, it can be seen that the client had sent a tweet with the text "yuzuru hanyu".
