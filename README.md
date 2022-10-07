@@ -1,4 +1,4 @@
-# Project2
+# Twitter APIs Tests
 ## Search Tweets
 This section tests how to get tweets for certain keywords for the past 7 days. First you need to log in to _developer.twitter.com_ to create a new app, then get a token and password.
 
